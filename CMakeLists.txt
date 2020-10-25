@@ -5,9 +5,12 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_FLAGS "-Wpedantic -Wall ${CMAKE_CXX_FLAGS}")
 
 link_directories(/usr/lib/x86_64-linux-gnu)
+include_directories(
+  include/
+)
 
 add_executable(create
-  create.c
+  src/create.c
 )
 target_link_libraries(create
   pthread
@@ -15,8 +18,8 @@ target_link_libraries(create
 )
 
 add_executable(periodic_task
-  periodic_task.c
-  rttask.c
+  src/periodic_task.c
+  src/rttask.c
 )
 target_link_libraries(periodic_task
   pthread
@@ -24,8 +27,8 @@ target_link_libraries(periodic_task
 )
 
 add_executable(mutex
-  mutex.c
-  rttask.c
+  src/mutex.c
+  src/rttask.c
 )
 target_link_libraries(mutex
   pthread
@@ -33,8 +36,8 @@ target_link_libraries(mutex
 )
 
 add_executable(hello_world
-  hello_world.c
-  rttask.c
+  src/hello_world.c
+  src/rttask.c
 )
 target_link_libraries(hello_world
   pthread
@@ -43,8 +46,8 @@ target_link_libraries(hello_world
 )
 
 add_executable(balls
-  balls.c
-  rttask.c
+  src/balls.c
+  src/rttask.c
 )
 target_link_libraries(balls
   pthread
